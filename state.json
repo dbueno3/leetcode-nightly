@@ -4,7 +4,11 @@
   ],
   "flagged": [],
   "review_done": [],
-  "notes": {},
+  "notes": {
+    "2": [
+      "set membership, early-return on first dup; O(n)/O(n) vs sort O(nlogn)/O(1)"
+    ]
+  },
   "log": {
     "1": "2026-06-15"
   }
