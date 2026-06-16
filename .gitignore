@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+# NOTE: state.json is intentionally NOT ignored — it's the source of truth
+# the nightly workflow reads, so it must be committed.

@@ -1,0 +1,28 @@
+name: Nightly LeetCode reminder
+
+# Sends tonight's NeetCode 150 problem to your inbox.
+# Cron is in UTC and does NOT observe daylight saving.
+#   '0 23 * * *'  ->  7:00 PM EDT (summer)  /  6:00 PM EST (winter)
+# Adjust the hour below to change when the reminder lands.
+on:
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch: {}   # lets you trigger a test run manually from the Actions tab
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # nightly.py uses only the standard library, so no install step needed.
+      - name: Send reminder
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
+        run: python nightly.py
