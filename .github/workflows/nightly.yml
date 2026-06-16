@@ -4,10 +4,12 @@ name: Nightly LeetCode reminder
 # Cron is in UTC and does NOT observe daylight saving.
 #   '0 23 * * *'  ->  7:00 PM EDT (summer)  /  6:00 PM EST (winter)
 # Adjust the hour below to change when the reminder lands.
+
 on:
   schedule:
-    - cron: "0 23 * * *"
-  workflow_dispatch: {}   # lets you trigger a test run manually from the Actions tab
+    - cron: "0 16 * * *"   # 12 PM EDT
+    - cron: "0 0 * * *"    # 8 PM EDT
+  workflow_dispatch: {} 
 
 jobs:
   send:
