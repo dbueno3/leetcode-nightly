@@ -7,8 +7,8 @@ name: Nightly LeetCode reminder
 
 on:
   schedule:
-    - cron: "0 16 * * *"   # 12 PM EDT
-    - cron: "0 0 * * *"    # 8 PM EDT
+    - cron: "0 14 * * *"   # 12 PM EDT
+    - cron: "0 22 * * *"    # 8 PM EDT
   workflow_dispatch: {} 
 
 jobs:
